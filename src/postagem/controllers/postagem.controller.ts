@@ -1,4 +1,4 @@
-import { Controller, Get, HttpCode, HttpStatus, ParseIntPipe } from "@nestjs/common";
+import { Controller, Get, HttpCode, HttpStatus, Param, ParseIntPipe } from "@nestjs/common";
 import { Postagem } from "../entities/postagem.entity";
 import { PostagemService } from "../services/postagem.service";
 
