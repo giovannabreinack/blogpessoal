@@ -29,8 +29,11 @@ export class UsuarioService {
 
         const usuario = await this.usuarioRepository.findOne({
             where: {
-                id
-            }
+                id,
+            },
+            relations: {
+                postagem: true,
+            },
         });
 
         if (!usuario)
