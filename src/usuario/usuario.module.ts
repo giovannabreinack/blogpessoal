@@ -6,10 +6,7 @@ import { Usuario } from './entities/usuario.entity';
 import { UsuarioService } from './services/usuario.service';
 
 @Module({
-    imports: [
-        TypeOrmModule.forFeature([Usuario]),
-        forwardRef(() => AuthModule),
-    ],
+    imports: [TypeOrmModule.forFeature([Usuario]), forwardRef(() => AuthModule)],
     providers: [UsuarioService],
     controllers: [UsuarioController],
     exports: [UsuarioService],

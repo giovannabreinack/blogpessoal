@@ -17,7 +17,7 @@ export class PostagemService {
             relations: {
                 tema: true,
                 usuario: true
-            }
+            },
         });
     }
 
@@ -25,12 +25,12 @@ export class PostagemService {
 
         const postagem = await this.postagemRepository.findOne({
             where: {
-                id
+                id,
             },
             relations: {
                 tema: true,
-                usuario: true
-            }
+                usuario: true,
+            },
         });
 
         if (!postagem)
@@ -46,9 +46,9 @@ export class PostagemService {
             },
             relations: {
                 tema: true,
-                usuario: true
-            }
-        })
+                usuario: true,
+            },
+        });
     }
 
     async create(postagem: Postagem): Promise<Postagem> {

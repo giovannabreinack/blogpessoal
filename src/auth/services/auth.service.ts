@@ -10,7 +10,7 @@ export class AuthService {
     constructor(
         private usuarioService: UsuarioService,
         private jwtService: JwtService,
-        private bcrypt: Bcrypt
+        private bcrypt: Bcrypt,
     ) { }
 
     async validateUser(username: string, password: string): Promise<any> {
@@ -43,13 +43,13 @@ export class AuthService {
         }
 
         return {
-            id: buscaUsuario.id,
-            nome: buscaUsuario.nome,
+            id: buscaUsuario?.id,
+            nome: buscaUsuario?.nome,
             usuario: usuarioLogin.usuario,
             senha: '',
-            foto: buscaUsuario.foto,
+            foto: buscaUsuario?.foto,
             token: `Bearer ${this.jwtService.sign(payload)}`,
-        }
+        };
 
     }
 }

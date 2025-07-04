@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put, UseGuards } from "@nestjs/common";
+import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
 import { Postagem } from "../entities/postagem.entity";
 import { PostagemService } from "../services/postagem.service";
-import { JwtAuthGuard } from "src/auth/guard/jwt-auth.guard";
 
 @UseGuards(JwtAuthGuard)
 @Controller("/postagens")
@@ -22,7 +22,7 @@ export class PostagemController {
 
     @Get('/titulo/:titulo')
     @HttpCode(HttpStatus.OK)
-    findByAllTitulo(@Param('titulo') titulo: string): Promise<Postagem[]> {
+    findAllByTitulo(@Param('titulo') titulo: string): Promise<Postagem[]> {
         return this.postagemService.findAllByTitulo(titulo);
     }
 
@@ -43,4 +43,5 @@ export class PostagemController {
     delete(@Param('id', ParseIntPipe) id: number) {
         return this.postagemService.delete(id);
     }
+
 }

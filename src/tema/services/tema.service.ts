@@ -13,14 +13,14 @@ export class TemaService {
     async findAll(): Promise<Tema[]> {
         return await this.temaRepository.find({
             relations: {
-                postagem: true
-            }
+                postagem: true,
+            },
         });
     }
 
     async findById(id: number): Promise<Tema> {
 
-        let tema = await this.temaRepository.findOne({
+        const tema = await this.temaRepository.findOne({
             where: {
                 id
             },
